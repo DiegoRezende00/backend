@@ -1,0 +1,79 @@
+//   // Método para listar todos os produtos
+//   listProducts() {
+//     if (this.products.length === 0) {
+//       console.log("Nenhum produto disponível.");
+//     } else {
+//       console.log("Produtos disponíveis:");
+//       this.products.forEach((product) => {
+//         console.log(
+//           `- ${product.title} (Código: ${product.code}, ID: ${product.id})`
+//         );
+//       });
+//     }
+//   }
+//  // Função para salvar usuário
+// async function salvarUsuario(username, password) {
+//   try {
+//     const hashedPassword = await bcrypt.hash(password, saltRounds);
+//     const usuario = { username, password: hashedPassword };
+//     let usuarios = [];
+//     if (fs.existsSync(usuariosFile)) {
+//       const data = fs.readFileSync(usuariosFile);
+//       usuarios = JSON.parse(data);
+//     }
+//     usuarios.push(usuario);
+//     fs.writeFileSync(usuariosFile, JSON.stringify(usuarios, null, 2));
+//     console.log("Usuário salvo com sucesso!");
+//   } catch (error) {
+//     console.error("Erro ao salvar o usuário:", error);
+//   }
+// } // Função para validar usuário
+// async function validarUsuario(username, password) {
+//   try {
+//     if (!fs.existsSync(usuariosFile)) {
+//       console.log("Erro: O arquivo de usuários não existe.");
+//       return;
+//     }
+//     const data = fs.readFileSync(usuariosFile);
+//     const usuarios = JSON.parse(data);
+//     const usuario = usuarios.find((u) => u.username === username);
+//     if (!usuario) {
+//       console.log("Erro: Usuário não encontrado.");
+//       return;
+//     }
+//     const match = await bcrypt.compare(password, usuario.password);
+//     if (match) {
+//       console.log("Logado");
+//     } else {
+//       console.log("Erro: Senha incorreta.");
+//     }
+//   } catch (error) {
+//     console.error("Erro ao validar o usuário:", error);
+//   }
+// } // Exemplo de uso
+// (async () => {
+//   const productManager = new ProductManager();
+//   productManager.addProduct(
+//     "Produto 1",
+//     "Descrição do Produto 1",
+//     10.0,
+//     "/caminho/imagem1.jpg",
+//     "P001",
+//     100
+//   );
+//   productManager.addProduct(
+//     "Produto 2",
+//     "Descrição do Produto 2",
+//     20.0,
+//     "/caminho/imagem2.jpg",
+//     "P002",
+//     200
+//   );
+//   productManager.listProducts();
+//   productManager.getProductById(1); // Deve retornar o Produto 1
+//   productManager.getProductById(3); // Deve gerar erro "Não encontrado"
+//   await salvarUsuario("usuario1", "senha123");
+//   await validarUsuario("usuario1", "senha123"); // Deve retornar "Logado"
+//   await validarUsuario("usuario1", "senhaErrada"); // Deve retornar "Erro: Senha incorreta."
+//   await validarUsuario("usuarioInexistente", "senha123"); // Deve retornar "Erro: Usuário não encontrado."
+// })();
